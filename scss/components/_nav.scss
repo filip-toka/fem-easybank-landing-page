@@ -1,0 +1,132 @@
+@use "../abstracts/mixins" as *;
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.5rem;
+    z-index: 2;
+
+    &__button {
+        display: none;
+    }
+}
+
+.primary-nav__backdrop {
+    position: fixed;
+    top: 4.2rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+.btn--primary-nav-toggle {
+    background-color: transparent;
+    border: none;
+    background-image: url(../images/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 11px;
+
+    &.opened {
+        background-image: url(../images/icon-close.svg);
+        width: 18px;
+        height: 19px;
+    }
+}
+
+.primary-nav {
+    position: fixed;
+    transform: translateY(-10rem);
+    visibility: hidden;
+
+    &.opened {
+        transform: translateY(10rem) translateX(-50%);
+        left: 50%;
+        background-color: white;
+        border-radius: 5px;
+        width: 90%;
+        z-index: 9999;
+        visibility: visible;
+    }
+
+    &__links {
+        list-style: none;
+        padding-left: 0;
+        text-align: center;
+
+        li:not(:last-of-type) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__link {
+        color: var(--color-dark-blue);
+        text-decoration: none;
+    }
+}
+
+@include mediaQuery(1280px) {
+    .btn--primary-nav-toggle {
+        display: none;
+    }
+
+    .navbar {
+        padding-block: 0;
+
+        &__button {
+            display: inline-block;
+            padding: .5rem 1rem;
+            min-width: 170px;
+        }
+
+    }
+
+    .primary-nav {
+        position: relative;
+        transform: none;
+        visibility: visible;
+
+        &__links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 0;
+            padding-block: 1.6rem;
+
+            li:not(:last-of-type) {
+                margin-bottom: 0;
+            }
+        }
+
+        &__link {
+            color: var(--color-grayish-blue);
+            padding-bottom: 1.6rem;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                background-image: linear-gradient(to right, var(--color-lime-green), var(--color-bright-cyan));
+                height: 3px;
+                width: 0;
+                transition: width .2s ease;
+            }
+
+            &:hover {
+                color: var(--color-dark-blue);
+
+                &::after {                   
+                    width: 100%;
+                }
+            }
+
+           
+        }
+    }
+}

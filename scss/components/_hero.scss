@@ -1,0 +1,124 @@
+@use "../abstracts/mixins" as *;
+
+.hero {
+    overflow: hidden;
+    position:relative;
+    padding-bottom: 5rem;
+
+    &__image {
+        min-height: 24rem;
+
+        &--background {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        &--mockup {
+            position: absolute;
+            top: -8.6rem;
+            right: 0;
+            max-width: 380px;
+            margin-left: auto;
+        }
+    }
+
+    &__content {
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+    }
+
+    &__button {
+        margin-block: 1rem;
+    }
+}
+
+@include mediaQuery {
+    .hero {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding-bottom: 0;
+        overflow-y: visible;
+        overflow-x: clip;
+
+        &__image,
+        &__content {
+            flex: 1 1 50%;
+        }
+
+        &__image {
+            min-height: 21rem;
+
+            &--background {
+                top: -5rem;
+                right: -9rem;
+                max-width: 550px;
+            }
+
+            &--mockup {
+                top: -5.6rem;
+                right: -3rem;
+            }
+
+        }        
+    }
+}
+
+@include mediaQuery(991px) {
+    .hero {
+        min-height: 30rem;
+
+        &__image {
+            flex: 1 1 60%;
+
+            &--mockup {
+                top: -6rem;
+                max-width: 500px;
+            }
+
+            &--background {
+                top: -8rem;
+                right: -9rem;
+                max-width: 800px;
+            }
+        }
+
+        &__content {
+            flex: 1 1 40%;
+            text-align: left;
+        }
+    }
+}
+
+@include mediaQuery(1280px) {
+    .hero {
+        min-height: 36rem;
+
+        &__image {
+            flex: 1 1 70%;
+
+            &--background {
+                top: -11rem;
+                right: -10rem;
+                max-width: 1000px;
+            }
+
+            &--mockup {
+                top: -12.6rem;
+                right: -8rem;
+                max-width: 100%;
+            }
+        }
+
+        &__content {
+            flex: 1 1 30%;
+        }
+    }
+}

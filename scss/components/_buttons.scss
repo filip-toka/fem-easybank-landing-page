@@ -1,0 +1,19 @@
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: .8rem 1.6rem;
+    min-width: 200px;
+}
+
+.btn--primary {
+    background-image: linear-gradient(to right, var(--color-lime-green), var(--color-bright-cyan));
+    color: white;
+
+    &:hover {
+        opacity: .7;
+    }
+}

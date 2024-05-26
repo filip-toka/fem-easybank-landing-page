@@ -1,0 +1,35 @@
+
+.list {
+    list-style: none;
+    padding-left: 0;
+
+    li:not(:last-of-type) {
+        margin-bottom: 1rem;
+    }
+
+    &.list--social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        
+    }
+
+    &__social-link--icon {
+        width: 28px;
+        height: 28px;
+
+        &:hover path {
+            fill: var(--color-lime-green);
+        }
+    }
+
+    &__footer-link {
+        text-decoration: none;
+        color: var(--color-very-light-gray);
+
+        &:hover {
+            color: var(--color-lime-green);
+        }
+    }
+}
